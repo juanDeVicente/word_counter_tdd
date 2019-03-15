@@ -35,7 +35,7 @@ def test_param_none():
 
 def test_wikipedia_definition_of_test_spanish():
     assert word_count(
-        'Un texto es una composición de signos codificados en un sistema de escritura que forma una unidad de ' \
+        'Un texto es una composición de si        gnos codificados en un sistema de escritura que forma una unidad de ' \
         'sentido. También es una composición de caracteres imprimibles (con grafema) generados por un algoritmo ' \
         'de cifrado que, aunque no tienen sentido para cualquier persona, sí puede ser descifrado por su ' \
         'destinatario original. En otras palabras, un texto es un entramado de signos con una intención ' \
