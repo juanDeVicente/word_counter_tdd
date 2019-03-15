@@ -28,10 +28,8 @@ def word_count(text, stopwords_language='english'):
     if not isinstance(text, str) or not isinstance(stopwords_language, str):
         raise ValueError
 
-    words = re.sub(r'[^\w\s]', '', text)  # Quitamos los signos de puntuacion por nada
-    ' '.join(words.split(' '))
-    words = words.split(' ')
-    words = [word.lower() for word in words if word.lower() not in stopwords.words(stopwords_language)]
+    words = text.split(' ')
+    words = [re.sub(r'[^\w\s]', '',word.lower()) for word in words if word.lower() not in stopwords.words(stopwords_language)]
     words_count = {}
 
     for key in words:
