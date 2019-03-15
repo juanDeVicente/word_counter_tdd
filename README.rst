@@ -3,17 +3,10 @@ word_counter_tdd
 ================
 
 
-Add a short description here!
+Proyecto para probar la función de contar las palabras en un texto
 
 
 Description
 ===========
 
-A longer description of your project goes here...
-
-
-Note
-====
-
-This project has been set up using PyScaffold 3.1. For details and usage
-information on PyScaffold see https://pyscaffold.org/.
+Este proyecto está formado por Claudia Rodríguez, Raúl Martínez, Paula Pascual y Juan de Vicente
