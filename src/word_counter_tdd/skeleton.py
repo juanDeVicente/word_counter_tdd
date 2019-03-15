@@ -26,7 +26,8 @@ def word_count(text, stopwords_language='english'):
         raise ValueError
 
     words = text.split(' ')
-    words = [re.sub(r'[^\w\s]', '',word.lower()) for word in words if word.lower() not in stopwords.words(stopwords_language)]
+    words = [re.sub(r'[^\w\s]', '', word.lower()) for word in words if
+             word.lower() not in stopwords.words(stopwords_language)]
     words_count = {}
 
     for key in words:
