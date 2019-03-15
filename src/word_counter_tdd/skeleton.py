@@ -16,12 +16,9 @@ also be used as template for Python modules.
 Note: This skeleton file can be safely removed if not needed!
 """
 
-import sys
 import re
 from nltk.corpus import stopwords
-import argparse
 import sys
-import logging
 
 
 def word_count(text, stopwords_language='english'):
