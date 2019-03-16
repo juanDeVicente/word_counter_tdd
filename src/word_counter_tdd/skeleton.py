@@ -24,7 +24,8 @@ def word_count(text, stopwords_language='english'):
     if not isinstance(text, str) or not isinstance(stopwords_language, str):
         raise ValueError
 
-    words = text.replace(",", "").replace(".", "").replace(":", "").replace(";", "")  # Los apostrofes en ingles son un problema
+    words = text.replace(",", "").replace(".", "").replace(":", "").replace(";", "").replace("?", "").replace("!", "")\
+        .replace("¿", "").replace("¡", "")  # Los apostrofes en ingles son un problema
     words = words.split(' ')
     words = [word.lower() for word in words if word.lower() not in stopwords.words(stopwords_language)]
     words_count = {}
