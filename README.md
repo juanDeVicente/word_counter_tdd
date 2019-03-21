@@ -3,7 +3,7 @@ Repositorio para probar la función de contar palabras.
 
 ## Instrucciones para instalar:
 
-1. Instalar todas las librerias listadas en el archivo requirements.txt
+1. Instalar todas las librerias listadas en el archivo <a href="https://github.com/juanDeVicente/word_counter_tdd/blob/master/requirements.txt" target="_blank">requirements.txt</a>
 2. Desde una consola de python ejectuar los siguientes comandos:
 ```python
 >>> import nltk
