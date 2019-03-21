@@ -183,9 +183,38 @@ def test_stop_words_apostophe_and_puntuation_english():
 def test_text_with_more_than_one_space_english():
     assert word_count("hello   buddy") == [("hello", 1), ("buddy", 1)]
     # MIRAR PORQUE NO SE WHY CON ESPACIOS PARES NO FUNCIONA PERO CON ESPACIOS PARES, SI
+    
+def test_only_stop_words_english():
+    assert word_count("how are you", "english") == []
 
 def test_with_exclamations_and_interrogations_english():
     assert word_count("today!!!!! is a great day???????") == [("today", 1), ("great", 1), ("day",1)]
 
-def test_only_stop_words_english():
-    assert word_count("how are you", "english") == []
+
+def test_two_word_french():
+    assert word_count('salut salut', 'french') == [('salut', 2)]
+
+
+def test_three_word_french():
+    assert word_count('salut adieu salut', 'french') == [('salut', 2), ('adieu', 1)]
+
+
+def test_words_upper_case_lower_case_french():
+    assert word_count('sAlut Salut SALUT sAlUt saluT', 'french') == [('salut', 5)]
+
+
+def test_with_commas_french():
+    assert word_count("Bonjour, je m'appelle Juan, revi de vous rencontrer, je suis Juan", 'french') == [('juan', 2),
+                                                                                                         ('bonjour', 1),
+                                                                                                         ("mappelle", 1),
+                                                                                                         ('revi', 1),
+                                                                                                         ('rencontrer', 1)]
+
+def test_wikipedia_definition_text_french():
+    assert word_count("Un texte est une série orale ou écrite de mots perçus comme constituant "\
+    "un ensemble cohérent, porteur de sens et utilizant les structures", 'french') == [('texte', 1), ('série', 1), ('orale', 1),
+                                         ('écrite', 1), ('mots', 1), ('perçus', 1),
+                                         ('comme', 1),('constituant', 1), ('ensemble',1),
+                                         ('cohérent', 1), ('porteur', 1), ('sens', 1),
+                                        ('utilizant', 1), ('structures', 1)
+                                                     ]
