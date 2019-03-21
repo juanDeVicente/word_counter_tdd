@@ -27,7 +27,9 @@ def word_count(text, stopwords_language='english'):
     words = text.replace(",", "").replace(".", "").replace(":", "").replace(";", "").replace("?", "").replace("!", "")\
         .replace("¿", "").replace("¡", "")  # Los apostrofes en ingles son un problema
     words = words.split(' ')
+
     words = [word.lower() for word in words if word.lower() not in stopwords.words(stopwords_language)]
+
     words_count = {}
 
     for key in words:
