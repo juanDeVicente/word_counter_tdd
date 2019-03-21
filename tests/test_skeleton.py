@@ -45,6 +45,10 @@ def test_param_none():
         word_count(None)
 
 
+def test_with_more_than_one_space():
+    assert word_count("hola              hola        hola") == [("hola", 3)]
+
+
 def test_two_words_german():
     assert word_count("hallo hallo", "german") == [("hallo", 2)]
 

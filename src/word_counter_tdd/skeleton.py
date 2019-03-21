@@ -15,18 +15,18 @@ Note: This skeleton file can be safely removed if not needed!
 
 from nltk.corpus import stopwords
 import sys
-import re
 
 
 def word_count(text, stopwords_language='english'):
     if not isinstance(text, str) or not isinstance(stopwords_language, str):
         raise ValueError
 
-    re.sub('\s+', ' ', text).strip()
+    text = ' '.join(text.split())  # Quitamos todos los espacios extra entre palabras
     words = text.replace(",", "").replace(".", "").replace(":", "").replace(";", "").replace("?", "").replace("!", "") \
-        .replace("¿", "").replace("¡", "")  # Los apostrofes son un problema
+        .replace("¿", "").replace("¡", "")
+    # Los apostrofes son un problema, asi que hay que cambiar los signos de puntuacion a mano
 
-    words = words.split(' ')
+    words = words.split(' ')  # Separamos por palabras
 
     words = [word.lower() for word in words if word.lower() not in stopwords.words(stopwords_language)]
 
@@ -34,8 +34,9 @@ def word_count(text, stopwords_language='english'):
 
     for key in words:
         words_count[key] = words_count.get(key, 0) + 1
+        # get funciona tal que si existe la clave devuelve el valor, si no devuelve el segundo parametro
 
-    return sorted(words_count.items(), key=lambda x: x[1], reverse=True)
+    return sorted(words_count.items(), key=lambda x: x[1], reverse=True)  # Ordenamos las palabras segun lo pedido
 
 
 def main(args):
@@ -52,4 +53,5 @@ def run():
 
 
 if __name__ == "__main__":
+    word_count("hello   buddy")
     run()
