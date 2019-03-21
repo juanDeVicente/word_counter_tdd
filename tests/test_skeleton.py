@@ -4,9 +4,8 @@
 import pytest
 from src.word_counter_tdd.skeleton import word_count
 
-def test_two_same_words():
-    assert word_count("hola hola", "spanish") == [("hola", 2)]
-
+def test_two_words():
+    assert word_count('hola hola', 'spanish') == [('hola', 2)]
 
 def test_three_same_words():
     assert word_count("hola hola hola", "spanish") == [("hola", 3)]
@@ -22,8 +21,8 @@ def test_three_different_words():
 
 def test_two_same_words_one_word_different():
     assert word_count("hola adios hola", "spanish") == [("hola", 2), ("adios", 1)]
-
-
+  
+ 
 def test_param_integer():
     with pytest.raises(ValueError):
         word_count(124)
@@ -42,6 +41,86 @@ def test_param_bool():
 def test_param_none():
     with pytest.raises(ValueError):
         word_count(None)
+
+def test_two_words_german():
+    assert word_count("hallo hallo", "german") == [("hallo", 2)]
+
+
+def test_three_words_german():
+    assert word_count("schwule hallo schwule", "german") == [("Schwule", 2), ("hallo", 1)]
+
+
+def test_words_upper_case_lower_case_german():
+    assert word_count("schwule ScHWule SCHWULE SchWUle SCHWule", "german") == [("schwule", 5)]
+
+
+def test_with_commas_german():
+    assert word_count("Hallo, ich bin Raul und freue mich, Sie kennenzulernen. Ich bin Raul", "german") == [
+        ("raul", 2),
+        ("hallo", 1),
+        ("mich", 1),
+        ("freue", 1),
+        ("kennenzulernen", 1)]
+
+
+def test_use_stopwords_german():
+    assert word_count("hallo vom hallo von vor hallo wann warum hallo was weiter hallo weitere hallo ", "german") == [
+        ("hallo", 6)]
+
+
+# Here are the tests in italian
+
+
+def test_two_words_italian():
+    assert word_count("ciao ciao", "italian") == [("ciao", 2)]
+
+
+def test_three_words_italian():
+    assert word_count("ciao ciao donna", "italian") == [("ciao", 2), ("donna", 1)]
+
+
+def test_words_upper_case_lower_case_italian():
+    assert word_count("DONNA donna DOnna DOnNA doNNA", "italian") == [("donna", 5)]
+
+
+def test_with_commas_italian():
+    assert word_count("Ciao, mi chiamo Raul, piacere di conoscerti, sono Raul", "italian") == [("Raul", 2),
+                                                                                               ("ciao", 1),
+                                                                                               ("chiamo", 1),
+                                                                                               ("mi", 1),
+                                                                                               ("piacere", 1),
+                                                                                               ("conoscerti", 1)]
+
+
+def test_use_stopwords_japanese():
+    assert word_count("ciao lungo ciao ma ciao me ciao meglio ciao molta", "italian") == [("ciao", 5)]
+
+
+# Here are the tests in japanese
+
+
+def test_two_words_japanese():
+    assert word_count("こんにちは こんにちは", "japanese") == [("こんにちは", 2)]
+
+
+def test_three_words_japanese():
+    assert word_count("こんにちは こんにちは アニメ", "japanese") == [("こんにちは", 2), ("アニメ", 1)]
+
+
+# there is no lowercase test in japanese cause there are no lowercase or capital letters in japanse
+# they use another alphabet 'KATAKANA'
+
+def test_with_commas_japanese():
+    assert word_count("こんにちは、私の名前は Raul、はじめまして、Raul です", "japanese") == [("Raul", 2),
+                                                                         ("こんにちは", 1),
+                                                                         ("私の名前は", 1),
+                                                                         ("はじめまして", 1)]
+
+
+# です is a stopword
+
+def test_use_stopwords_japanese():
+    assert word_count("こんにちは おります こんにちは います こんにちは は こんにちは が こんにちは", "japanese") == [("こんにちは", 5)]
 
 def test_param_list():
     with pytest.raises(ValueError):
