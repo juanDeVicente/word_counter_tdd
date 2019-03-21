@@ -16,12 +16,9 @@ also be used as template for Python modules.
 Note: This skeleton file can be safely removed if not needed!
 """
 
-import sys
 import re
 from nltk.corpus import stopwords
-import argparse
 import sys
-import logging
 
 
 def word_count(text, stopwords_language='english'):
@@ -31,7 +28,7 @@ def word_count(text, stopwords_language='english'):
     words = text.replace(",", "").replace(".", "").replace(":", "").replace(";", "").replace("?", "").replace("!", "")\
         .replace("¿", "").replace("¡", "")  # Los apostrofes en ingles son un problema
     words = words.split(' ')
-    words = [word.lower() for word in words if word.lower() not in stopwords.words(stopwords_language)]
+
     words_count = {}
 
     for key in words:
