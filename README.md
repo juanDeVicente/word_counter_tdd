@@ -1,7 +1,7 @@
 # word_counter_tdd
-Repositorio para probar la función de contar palabras
+Repositorio para probar la función de contar palabras.
 
-#Instrucciones para instalar:
+## Instrucciones para instalar:
 
 1. Instalar todas las librerias listadas en el archivo requirements.txt
 2. Desde una consola de python ejectuar los siguientes comandos:
